@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+:root {
+  --gg-green: #1E5128;
+  --gg-green-mid: #2D6A4F;
+  --gg-green-light: #E8F5E9;
+  --gg-amber: #F57F17;
+  --gg-red: #D32F2F;
+}
