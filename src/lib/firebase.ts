@@ -3,12 +3,12 @@ import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCLG2xQL910x6hQzc8l5UjIwYKIGGli5Ik',
-  authDomain: 'greenguard-478b7.firebaseapp.com',
-  projectId: 'greenguard-478b7',
-  storageBucket: 'greenguard-478b7.firebasestorage.app',
-  messagingSenderId: '981446136083',
-  appId: '1:981446136083:android:ae3475593e70bc4acf0ae6',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 }
 
 export const app = initializeApp(firebaseConfig)
