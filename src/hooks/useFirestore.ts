@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import {
-  collection, onSnapshot, query, where, orderBy,
+  collection, onSnapshot, query, where,
   doc, updateDoc, Timestamp,
 } from 'firebase/firestore'
-import type { DocumentData, QueryConstraint } from 'firebase/firestore'
+import type { DocumentData } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 import { fromTs } from '../types'
-import type { PestRecord, UserModel, AssistanceRequest, Farm } from '../types'
+import type { PestRecord, UserModel, AssistanceRequest } from '../types'
 
 function parsePestRecord(d: DocumentData, id: string): PestRecord {
   const h = d.health ?? {}

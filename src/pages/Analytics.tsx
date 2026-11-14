@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, PieChart, Pie, Cell, Legend,
+  ResponsiveContainer, PieChart, Pie, Cell,
 } from 'recharts'
 import { usePestRecords } from '../hooks/useFirestore'
 
@@ -114,7 +114,7 @@ export default function Analytics() {
             <h2 className="font-semibold text-gray-900 mb-4">Pest Distribution</h2>
             <ResponsiveContainer width="100%" height={220}>
               <PieChart>
-                <Pie data={byPest} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
+                <Pie data={byPest} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label={({ name, percent }: { name: string; percent?: number }) => `${name} ${((percent ?? 0) * 100).toFixed(0)}%`}>
                   {byPest.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                 </Pie>
                 <Tooltip />
