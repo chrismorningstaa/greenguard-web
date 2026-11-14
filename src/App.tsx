@@ -8,6 +8,7 @@ import Farmers from './pages/Farmers'
 import Assistance from './pages/Assistance'
 import Analytics from './pages/Analytics'
 import Library from './pages/Library'
+import HazardMap from './pages/HazardMap'
 
 function PrivateRoutes() {
   const { user, loading } = useAuth()
@@ -27,6 +28,7 @@ function PrivateRoutes() {
         <Route path="farmers" element={<Farmers />} />
         <Route path="assistance" element={<Assistance />} />
         <Route path="analytics" element={<Analytics />} />
+        <Route path="hazardmap" element={<HazardMap />} />
         <Route path="library" element={<Library />} />
       </Route>
     </Routes>

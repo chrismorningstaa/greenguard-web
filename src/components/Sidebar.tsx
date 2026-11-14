@@ -1,17 +1,18 @@
 import { NavLink } from 'react-router-dom'
 import {
   LayoutDashboard, Bug, Users, ClipboardList,
-  BarChart2, BookOpen, LogOut, Leaf,
+  BarChart2, BookOpen, LogOut, Leaf, Map,
 } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 
 const links = [
-  { to: '/',          label: 'Dashboard',       icon: LayoutDashboard },
-  { to: '/records',   label: 'Detection Records', icon: Bug },
-  { to: '/farmers',   label: 'Farmers',          icon: Users },
-  { to: '/assistance',label: 'Assistance',       icon: ClipboardList },
-  { to: '/analytics', label: 'Analytics',        icon: BarChart2 },
-  { to: '/library',   label: 'Pest Library',     icon: BookOpen },
+  { to: '/',           label: 'Dashboard',        icon: LayoutDashboard },
+  { to: '/records',    label: 'Detection Records', icon: Bug },
+  { to: '/farmers',    label: 'Farmers',           icon: Users },
+  { to: '/assistance', label: 'Assistance',        icon: ClipboardList },
+  { to: '/analytics',  label: 'Analytics',         icon: BarChart2 },
+  { to: '/hazardmap',  label: 'Hazard Map',        icon: Map },
+  { to: '/library',    label: 'Pest Library',      icon: BookOpen },
 ]
 
 export default function Sidebar() {
