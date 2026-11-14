@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react'
+import L from 'leaflet'
 import { MapContainer, TileLayer, CircleMarker, Tooltip as MapTooltip } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
+// Fix: Vite breaks Leaflet's default marker icon PNG URLs, causing triangle artifacts
+delete (L.Icon.Default.prototype as any)._getIconUrl
 import { usePestRecords } from '../hooks/useFirestore'
 
 // Approximate center coordinates [lat, lng] for Lipa City barangays
@@ -79,10 +82,18 @@ const BRGY_COORDS: Record<string, [number, number]> = {
   'San Pedro': [13.9570, 121.1830],
   'Bulacnin': [13.9650, 121.1650],
   'Marauoy': [13.9500, 121.1555],
+  'Cawongan': [13.9720, 121.1950],
+  'Escrabo': [13.8980, 121.1620],
+  'Bontog': [13.9780, 121.1800],
+  'Baybayin': [13.9030, 121.1880],
 }
 
 function normalize(s: string) {
-  return s.toLowerCase().replace(/\s+/g, ' ').trim()
+  return s.toLowerCase()
+    .replace(/^brgy\.?\s+/, '')
+    .replace(/^barangay\s+/, '')
+    .replace(/\s+/g, ' ')
+    .trim()
 }
 
 function findCoords(barangay: string): [number, number] | null {
