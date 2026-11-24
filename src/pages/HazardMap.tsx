@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, CircleMarker, Tooltip as MapTooltip } from 're
 import 'leaflet/dist/leaflet.css'
 // Fix: Vite breaks Leaflet's default marker icon PNG URLs, causing triangle artifacts
 delete (L.Icon.Default.prototype as any)._getIconUrl
+L.Icon.Default.mergeOptions({ iconUrl: '', iconRetinaUrl: '', shadowUrl: '' })
 import { usePestRecords } from '../hooks/useFirestore'
 
 // Approximate center coordinates [lat, lng] for Lipa City barangays
@@ -82,10 +83,12 @@ const BRGY_COORDS: Record<string, [number, number]> = {
   'San Pedro': [13.9570, 121.1830],
   'Bulacnin': [13.9650, 121.1650],
   'Marauoy': [13.9500, 121.1555],
-  'Cawongan': [13.9720, 121.1950],
-  'Escrabo': [13.8980, 121.1620],
   'Bontog': [13.9780, 121.1800],
-  'Baybayin': [13.9030, 121.1880],
+  // Barangays in neighboring Batangas municipalities
+  'Escrabo': [13.8150, 121.4100],     // San Juan, Batangas
+  'Tubigan': [13.8280, 121.3850],     // San Juan, Batangas
+  'Baybayin': [13.8560, 121.2200],    // Rosario, Batangas
+  'Cawongan': [13.7980, 121.1850],    // Garcia/Batangas area
 }
 
 function normalize(s: string) {
@@ -167,7 +170,7 @@ export default function HazardMap() {
     <div className="p-6 space-y-4">
       <div>
         <h1 className="text-xl font-bold text-gray-900">Pest Hazard Map</h1>
-        <p className="text-sm text-gray-500">Geographic distribution of pest detections across Lipa City barangays</p>
+        <p className="text-sm text-gray-500">Geographic distribution of pest detections across Lipa City and Batangas barangays</p>
       </div>
 
       {/* Stats */}
@@ -203,14 +206,14 @@ export default function HazardMap() {
           <div className="h-full flex items-center justify-center text-gray-400 text-sm">Loading map data…</div>
         ) : (
           <MapContainer
-            center={[13.9411, 121.1631]}
-            zoom={12}
+            center={[13.9000, 121.2500]}
+            zoom={10}
             style={{ height: '100%', width: '100%' }}
             scrollWheelZoom
           >
             <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+              url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             />
             {markers.map(({ brgy, coords, count, topPest }) => {
               const { color, radius } = getRisk(count)
