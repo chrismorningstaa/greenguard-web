@@ -74,7 +74,6 @@ const BRGY_COORDS: Record<string, [number, number]> = {
   'Tibig': [13.9050, 121.1550],
   'Tolentino East': [13.9600, 121.1600],
   'Tolentino West': [13.9580, 121.1580],
-  'Tubigan': [13.9700, 121.1600],
   'Wawa': [13.9700, 121.1700],
   'Cumba': [13.9650, 121.1850],
   'Antipolo del Norte': [13.9400, 121.1950],
