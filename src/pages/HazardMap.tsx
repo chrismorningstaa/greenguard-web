@@ -84,6 +84,7 @@ const BRGY_COORDS: Record<string, [number, number]> = {
   'Marauoy': [13.9500, 121.1555],
   'Bontog': [13.9780, 121.1800],
   // Barangays in neighboring Batangas municipalities
+  'Tubigan': [14.3350, 121.0820],     // Biñan, Laguna
   'Escrabo': [13.8150, 121.4100],     // San Juan, Batangas
   'Baybayin': [13.8560, 121.2200],    // Rosario, Batangas
   'Cawongan': [13.7980, 121.1850],    // Garcia/Batangas area
