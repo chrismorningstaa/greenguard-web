@@ -85,7 +85,6 @@ const BRGY_COORDS: Record<string, [number, number]> = {
   'Bontog': [13.9780, 121.1800],
   // Barangays in neighboring Batangas municipalities
   'Escrabo': [13.8150, 121.4100],     // San Juan, Batangas
-  'Tubigan': [13.8280, 121.3850],     // San Juan, Batangas
   'Baybayin': [13.8560, 121.2200],    // Rosario, Batangas
   'Cawongan': [13.7980, 121.1850],    // Garcia/Batangas area
 }
@@ -211,9 +210,9 @@ export default function HazardMap() {
             scrollWheelZoom
           >
             <TileLayer
-              attribution='Tiles &copy; <a href="https://www.esri.com/">Esri</a>'
-              url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Canvas/MapServer/tile/{z}/{y}/{x}"
-              maxZoom={16}
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              maxZoom={19}
             />
             {markers.map(({ brgy, coords, count, topPest }) => {
               const { color, radius } = getRisk(count)
