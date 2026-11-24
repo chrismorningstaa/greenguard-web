@@ -211,8 +211,9 @@ export default function HazardMap() {
             scrollWheelZoom
           >
             <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-              url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+              attribution='Tiles &copy; <a href="https://www.esri.com/">Esri</a>'
+              url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Canvas/MapServer/tile/{z}/{y}/{x}"
+              maxZoom={16}
             />
             {markers.map(({ brgy, coords, count, topPest }) => {
               const { color, radius } = getRisk(count)
