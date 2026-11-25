@@ -82,7 +82,7 @@ const BRGY_COORDS: Record<string, [number, number]> = {
   'San Pedro': [13.9570, 121.1830],
   'Bulacnin': [13.9650, 121.1650],
   'Marauoy': [13.9500, 121.1555],
-  'Bontog': [13.9780, 121.1800],
+  'Bontog': [13.9532, 121.1108],     // Mataas na Kahoy, Batangas
   // Barangays in neighboring Batangas municipalities
   'Tubigan': [14.3298, 121.0700],     // Biñan, Laguna
   'Escrabo':   [13.8064, 121.3700],   // San Juan, Batangas (Escribano)
